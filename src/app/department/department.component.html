@@ -1,0 +1,10 @@
+<section class="listing">
+  <img
+    class="listing-photo"
+    [src]="department.photo"
+    alt="Exterior photo of {{ department.name }}"
+    crossorigin
+  />
+  <h2 class="listing-heading">{{ department.name }}</h2>
+  <a [routerLink]="['/details', department.id]"> View Employees</a>
+</section>

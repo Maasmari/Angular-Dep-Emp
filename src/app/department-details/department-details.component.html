@@ -1,0 +1,9 @@
+<!-- add department name  -->
+<h2>{{ departmentName }}</h2>
+
+<section class="results">
+  <app-employee
+    *ngFor="let employee of employees"
+    [employee]="employee"
+  ></app-employee>
+</section>

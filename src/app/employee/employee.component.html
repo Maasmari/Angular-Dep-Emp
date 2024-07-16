@@ -1,0 +1,12 @@
+<section class="listing">
+  <img
+    class="listing-photo"
+    [src]="employee.photo"
+    alt="Exterior photo of {{ employee.name }}"
+    crossorigin
+  />
+  <h2 class="listing-heading">{{ employee.name }}</h2>
+  <p class="listing-detail">Position: {{ employee.jobTitle }}</p>
+  <p class="listing-detail">Email: {{ employee.email }}</p>
+  <p class="listing-detail">Phone: {{ employee.phoneNumber }}</p>
+</section>
