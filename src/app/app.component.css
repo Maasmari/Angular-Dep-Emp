@@ -10,7 +10,6 @@ header {
 .content {
   padding: var(--content-padding);
 }
-/* Style for the brand name */
 .brand-name {
   display: flex;
   align-items: center;
@@ -18,16 +17,9 @@ header {
   color: var(--primary-color);
 }
 
-/* Style for the brand logo */
 .brand-logo {
   height: 50px;
   width: 50px;
   margin-right: 10px;
   background-color: var(--primary-color);
 }
-
-/*
-    Copyright Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license
-    */
