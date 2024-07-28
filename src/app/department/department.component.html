@@ -6,5 +6,7 @@
     crossorigin
   />
   <h2 class="listing-heading">{{ department.name }}</h2>
-  <a [routerLink]="['/details', department.id]"> View Employees</a>
+  <a [routerLink]="['/details', department.id]" class="listing-link">
+    View Employees
+  </a>
 </section>

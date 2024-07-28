@@ -16,8 +16,10 @@ export class HomeComponent {
   departments: Department[] = [];
   departmentService: DepartmentService = inject(DepartmentService);
 
-  constructor(){
-    this.departments = this.departmentService.getAllDepartments();
+  constructor() {
+    this.departmentService.getDepartmentList().subscribe((data) => {
+      this.departments = data;
+    });
   }
 
 }

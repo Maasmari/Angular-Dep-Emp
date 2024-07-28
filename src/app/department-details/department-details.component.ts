@@ -1,24 +1,24 @@
-import {Component, inject} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { EmployeeComponent } from '../employee/employee.component';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-department-details',
   standalone: true,
   imports: [CommonModule, EmployeeComponent],
   templateUrl: './department-details.component.html',
-  styleUrl: './department-details.component.css'
+  styleUrls: ['./department-details.component.css']
 })
-export class DepartmentDetailsComponent {
+export class DepartmentDetailsComponent implements OnInit {
   
-    employees: Employee[] = [];
-    employeeService: EmployeeService = inject(EmployeeService);
-    route: ActivatedRoute = inject(ActivatedRoute);
-    departmentId: number = Number(this.route.snapshot.params['id']);
-    departmentName: string = '';
+  employees: Employee[] = [];
+  employeeService: EmployeeService = inject(EmployeeService);
+  route: ActivatedRoute = inject(ActivatedRoute);
+  departmentId: number = Number(this.route.snapshot.paramMap.get('id'));
+  departmentName: string = '';
 
   departmentMap: { [key: number]: string } = {
     1: 'IT Department',
@@ -31,10 +31,18 @@ export class DepartmentDetailsComponent {
     8: 'Legal Department',
     9: 'Research Department'
   };
-  
-    constructor(){
-      this.employees = this.employeeService.getEmployeeByDepartmentId(this.departmentId);
-      this.departmentName = this.departmentMap[this.departmentId];
-    }
 
+  ngOnInit(): void {
+    this.departmentName = this.departmentMap[this.departmentId];
+    this.employeeService.getEmployeeByDepartmentId(this.departmentId).subscribe(
+      (data: Employee[]) => {
+        this.employees = data;
+      },
+      (error) => {
+        console.error('Error fetching employees:', error);
+      }
+    );
+  }
+
+  constructor() {}
 }

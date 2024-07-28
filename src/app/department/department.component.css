@@ -28,3 +28,9 @@ section.listing a::after {
   content: "\203A";
   margin-left: 5px;
 }
+.listing-link {
+  /* make text blue for link */
+  color: blue;
+  text-decoration: none;
+  padding: 10px 20px 0 20px;
+}
