@@ -1,4 +1,11 @@
-<h2>{{ departmentName }}</h2>
+<h2>
+  {{ departmentName }}
+  <!-- <button []>Add a new employee +</button> -->
+  <!-- on clicking the button go to page /add-employee -->
+  <button [routerLink]="['/add-employee', department_id]" class="listing-link">
+    Add a new employee +
+  </button>
+</h2>
 
 <section class="results">
   <app-employee

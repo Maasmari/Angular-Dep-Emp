@@ -1,0 +1,10 @@
+
+hql => hibernate query language 
+
+spring data =>
+
+JPA => JPAQL for reading 
+
+Mapper "mapstruct"
+Entity => DTO
+DTO => Entity

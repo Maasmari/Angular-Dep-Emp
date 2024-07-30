@@ -20,6 +20,8 @@ button {
   background: var(--primary-color);
   color: white;
   border-radius: 8px;
+  margin: 12px;
+  float: right;
 }
 @media (min-width: 500px) and (max-width: 768px) {
   .results {

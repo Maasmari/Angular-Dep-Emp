@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Employee } from '../employee';
+import { Employee } from '../Services/EmployeeServices/employee';
 
 @Component({
   selector: 'app-employee',

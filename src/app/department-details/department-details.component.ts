@@ -1,14 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Employee } from '../employee';
-import { EmployeeService } from '../employee.service';
+import { Employee } from '../Services/EmployeeServices/employee';
+import { EmployeeService } from '../Services/EmployeeServices/employee.service';
 import { EmployeeComponent } from '../employee/employee.component';
 import { ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-department-details',
   standalone: true,
-  imports: [CommonModule, EmployeeComponent],
+  imports: [CommonModule, EmployeeComponent, RouterModule],
   templateUrl: './department-details.component.html',
   styleUrls: ['./department-details.component.css']
 })
@@ -17,7 +19,7 @@ export class DepartmentDetailsComponent implements OnInit {
   employees: Employee[] = [];
   employeeService: EmployeeService = inject(EmployeeService);
   route: ActivatedRoute = inject(ActivatedRoute);
-  departmentId: number = Number(this.route.snapshot.paramMap.get('id'));
+  department_id: number = Number(this.route.snapshot.paramMap.get('id'));
   departmentName: string = '';
 
   departmentMap: { [key: number]: string } = {
@@ -33,8 +35,8 @@ export class DepartmentDetailsComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.departmentName = this.departmentMap[this.departmentId];
-    this.employeeService.getEmployeeByDepartmentId(this.departmentId).subscribe(
+    this.departmentName = this.departmentMap[this.department_id];
+    this.employeeService.getEmployeeByDepartmentId(this.department_id).subscribe(
       (data: Employee[]) => {
         this.employees = data;
       },
